@@ -30,6 +30,13 @@ const Item = mongoose.model('Item', itemSchema);
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'API MERN opérationnelle',
+    health: '/api/health',
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'ok',
